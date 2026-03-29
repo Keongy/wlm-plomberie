@@ -72,14 +72,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/zone-intervention"
-                  className="transition-colors hover:text-green-600"
-                >
-                  Zone d’intervention
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/#contact"
                   className="font-semibold text-green-800 transition-colors hover:text-green-600"
                 >
