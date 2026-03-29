@@ -4,8 +4,8 @@ import {Mail, MapPin, Phone} from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="mt-16">
-      <div className="bg-[#222222] text-gray-300">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-10 md:flex-row md:gap-8">
+      <div className="bg-[#222222] text-gray-300 ">
+        <div className="mx-auto flex max-w-[1080px] flex-col gap-10 px-6 py-10 md:flex-row md:gap-8">
           <div className="space-y-4 md:flex-1">
             <h2 className="text-base font-extrabold uppercase tracking-tight text-[#a3a3a3]">
               WLM PLOMBERIE & CLIMATISATION

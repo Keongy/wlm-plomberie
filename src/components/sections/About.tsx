@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function About() {
   return (
     <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-8 md:grid-cols-2 md:gap-16">
+      <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 px-8 md:grid-cols-2 md:gap-16">
         <div className="max-w-xl">
           <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[#0f172a] md:text-6xl">
             À Propos de WLM Plomberie & Climatisation

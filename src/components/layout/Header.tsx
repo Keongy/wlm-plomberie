@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-neutral-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
+      <div className="mx-auto flex h-20 max-w-[1080px] items-center justify-between px-4">
         <Link href="/">
           <Image
             src="/images/logo.png"
