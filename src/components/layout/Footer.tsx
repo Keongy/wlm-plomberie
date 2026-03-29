@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer className="mt-16">
       <div className="bg-[#222222] text-gray-300">
-        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-10 md:flex-row md:justify-between md:gap-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-10 md:flex-row md:gap-8">
           <div className="space-y-4 md:flex-1">
             <h2 className="text-base font-extrabold uppercase tracking-tight text-[#a3a3a3]">
               WLM PLOMBERIE & CLIMATISATION
             </h2>
 
-            <p className="max-w-sm text-sm leading-6 text-[#777777]">
+            <p className="max-w-xs text-sm leading-7 text-[#777777]">
               Votre artisan de confiance à Nice Ouest pour tous vos travaux de
               plomberie et climatisation. Qualité, propreté et rapidité.
             </p>
