@@ -1,10 +1,10 @@
-import {MapPin} from 'lucide-react';
+import Image from 'next/image';
 
 export default function InterventionZone() {
   return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-[1080px] px-6">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <section id="intervention" className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-[1180px] px-6">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div>
             <div className="mb-8 md:mb-10">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#4d8b55]">
@@ -53,17 +53,18 @@ export default function InterventionZone() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
-            <div className="relative flex h-[260px] items-center justify-center bg-[#55b7da] md:h-[320px]">
-              <iframe
-                title="Zone d’intervention WLM"
-                className="h-[260px] w-full md:h-[320px]"
-                style={{border: 0}}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDF16WePuYUf8ZHWG1hyvYIfp3HME73VtA&q=Nice+Ouest,France"
-              />
+          <div className="lg:pl-4">
+            <div className="group relative overflow-hidden rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5">
+              <div className="relative h-[340px] w-full overflow-hidden">
+                <Image
+                  src="/images/car.jpg"
+                  alt="Intervention en plomberie et climatisation à Nice Ouest"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
