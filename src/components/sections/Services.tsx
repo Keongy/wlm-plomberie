@@ -48,17 +48,17 @@ export default function Services() {
             return (
               <article
                 key={service.title}
-                className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-1"
+                className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-1"
               >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#eaf2ee]">
-                  <Icon size={22} className="text-[#1f7a3f]" />
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#eaf2ee]">
+                  <Icon size={20} className="text-[#1f7a3f]" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-[#2a2a2a]">
+                <h3 className="text-lg font-semibold text-[#2a2a2a]">
                   {service.title}
                 </h3>
 
-                <p className="mt-4 text-base leading-7 text-[#6b7280]">
+                <p className="mt-3 text-sm sm:text-base leading-6 text-[#6b7280]">
                   {service.description}
                 </p>
               </article>

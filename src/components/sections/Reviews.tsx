@@ -22,7 +22,7 @@ function Stars() {
   return (
     <div className="flex items-center gap-1">
       {Array.from({length: 5}).map((_, index) => (
-        <Star key={index} size={16} className="fill-[#fbbc04] text-[#fbbc04]" />
+        <Star key={index} size={14} className="fill-[#fbbc04] text-[#fbbc04]" />
       ))}
     </div>
   );
@@ -30,61 +30,51 @@ function Stars() {
 
 export default function Reviews() {
   return (
-    <section className="bg-[#f5f5f5] py-16 md:py-20">
+    <section className="bg-[#f5f5f5] py-10 md:py-14">
       <div className="mx-auto max-w-[1080px] px-6">
         <div className="mb-8 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-[#171717] md:text-4xl">
+          <p className="text-base font-semibold text-[#333333]">
             Ce que disent nos clients
-          </h2>
-          <p className="mt-3 text-sm text-[#666666] md:text-base">
-            Des avis authentiques de clients satisfaits à Nice Ouest et
-            alentours.
           </p>
         </div>
 
         <div className="overflow-x-auto">
-          <div className="flex gap-4 pb-2 md:grid md:grid-cols-3 md:gap-6">
+          <div className="flex gap-4 pb-2 md:grid md:grid-cols-3 md:gap-5">
             {reviews.map((review) => (
               <article
                 key={review.name}
-                className="min-w-[290px] rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 md:min-w-0"
+                className="min-w-[270px] rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 md:min-w-0"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#e83e6f] text-base font-semibold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e83e6f] text-sm font-semibold text-white">
                       {review.initial}
                     </div>
 
                     <div>
-                      <p className="text-base font-semibold text-[#171717]">
+                      <p className="text-sm font-semibold text-[#171717]">
                         {review.name}
                       </p>
-                      <p className="text-sm text-[#777777]">il y a 1 mois</p>
+                      <p className="text-xs text-[#777777]">il y a 1 mois</p>
                     </div>
                   </div>
 
-                  <div className="text-sm font-semibold text-[#4285F4]">G</div>
+                  <div className="text-xs font-semibold text-[#4285F4]">G</div>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-3">
                   <Stars />
                 </div>
 
-                <p className="mt-4 line-clamp-4 text-sm leading-7 text-[#333333]">
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#333333]">
                   {review.text}
                 </p>
 
-                <button className="mt-4 text-sm font-medium text-[#777777] transition-colors hover:text-[#171717]">
+                <button className="mt-3 text-sm font-medium text-[#777777] transition-colors hover:text-[#171717]">
                   Lire la suite
                 </button>
               </article>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-6 flex justify-end">
-          <div className="rounded-md bg-[#0b7a53] px-4 py-2 text-sm font-semibold text-white">
-            Certifié par: Trustindex
           </div>
         </div>
       </div>

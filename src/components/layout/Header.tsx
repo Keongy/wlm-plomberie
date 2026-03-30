@@ -10,7 +10,7 @@ export default function Header() {
       <div className="mx-auto flex h-20 max-w-[1080px] items-center justify-between px-4">
         <Link href="/">
           <Image
-            src="/images/logo.png"
+            src="/images/logo-wlm.png"
             alt="WLM Plomberie"
             width={120}
             height={40}

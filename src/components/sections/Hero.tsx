@@ -20,23 +20,23 @@ export default function Hero() {
       </div>
 
       {/* Contenu */}
-      <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-7xl flex-col items-center justify-center px-6 text-center">
-        <h1 className="max-w-6xl text-5xl font-semibold tracking-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] md:text-7xl">
+      <div className="relative z-10 mx-auto flex min-h-[78vh] max-w-7xl flex-col items-center justify-between px-6 py-32 text-center">
+        <h1 className="max-w-6xl text-[30px] leading-[1.1] sm:text-4xl md:text-6xl font-semibold tracking-tight text-white [text-shadow:0.08em_0.08em_0_rgba(0,0,0,0.4)]">
           WLM Plomberie & Climatisation
         </h1>
 
-        <div className="mt-10 space-y-2 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
-          <p className="text-lg font-semibold md:text-2xl">
+        <div className="mt-10 space-y-2 text-white [text-shadow:0.08em_0.08em_0_rgba(0,0,0,0.4)]">
+          <p className="text-lg font-semibold md:text-1xl leading-[0.9]">
             Plombier à Nice Ouest
           </p>
-          <p className="text-base font-semibold md:text-xl">
+          <p className="text-base font-semibold md:text-1xl">
             Installation • Dépannage • Climatisation
           </p>
         </div>
 
         <Link
           href="/#contact"
-          className="mt-14 inline-flex rounded-full bg-blue-700 px-8 py-4 text-sm font-semibold text-white transition-colors hover:bg-blue-600 md:px-10 md:text-base"
+          className="inline-flex rounded-full bg-[#2b6288] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#35739d]"
         >
           Demander un devis (gratuit)
         </Link>

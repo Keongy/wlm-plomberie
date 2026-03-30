@@ -6,11 +6,17 @@ export default function InterventionZone() {
       <div className="mx-auto max-w-[1080px] px-6">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <h2 className="text-3xl font-semibold tracking-tight text-[#222222] md:text-5xl">
-              Zone d&apos;intervention
-            </h2>
+            <div className="mb-8 md:mb-10">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#4d8b55]">
+                Zone d’intervention
+              </p>
 
-            <p className="mt-5 text-base leading-8 text-[#555555] md:text-lg">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#222222] md:text-5xl">
+                Nice Ouest & alentours
+              </h2>
+            </div>
+
+            <p className="text-base leading-7 text-[#555555] md:text-lg md:leading-8">
               Basés à{' '}
               <span className="font-semibold text-[#2f7d32]">Nice Ouest</span>,
               nous intervenons rapidement pour vos besoins en plomberie,
@@ -18,30 +24,30 @@ export default function InterventionZone() {
               ses environs.
             </p>
 
-            <p className="mt-4 text-base leading-8 text-[#555555] md:text-lg">
+            <p className="mt-4 text-base leading-7 text-[#555555] md:text-lg md:leading-8">
               Nous nous déplaçons notamment à Nice Ouest, Saint-Laurent-du-Var,
               Cagnes-sur-Mer et dans les communes proches pour assurer un
               service réactif, soigné et professionnel.
             </p>
 
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-base font-semibold text-[#2f7d32]">
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5">
+                <h3 className="text-sm font-semibold text-[#2f7d32]">
                   Disponibilité
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-[#555555]">
+                <p className="mt-2 text-sm leading-6 text-[#555555]">
                   Lundi - Samedi : 8h - 19h
                   <br />
                   Urgences 24h/24
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
-                <h3 className="text-base font-semibold text-[#2f7d32]">
+              <div className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5">
+                <h3 className="text-sm font-semibold text-[#2f7d32]">
                   Secteur
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-[#555555]">
-                  Nice Ouest &amp; Communauté Urbaine
+                <p className="mt-2 text-sm leading-6 text-[#555555]">
+                  Nice Ouest &amp; alentours
                 </p>
               </div>
             </div>
@@ -49,18 +55,15 @@ export default function InterventionZone() {
 
           <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
             <div className="relative flex h-[260px] items-center justify-center bg-[#55b7da] md:h-[320px]">
-              <div className="text-center leading-none text-white">
-                <div className="text-5xl font-extrabold tracking-tight md:text-7xl">
-                  NICE
-                </div>
-                <div className="mt-2 text-5xl font-extrabold tracking-tight md:text-7xl">
-                  OUEST
-                </div>
-              </div>
-
-              <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-[#0f6b1f] shadow-lg">
-                <MapPin size={24} className="fill-white text-white" />
-              </div>
+              <iframe
+                title="Zone d’intervention WLM"
+                className="h-[260px] w-full md:h-[320px]"
+                style={{border: 0}}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDF16WePuYUf8ZHWG1hyvYIfp3HME73VtA&q=Nice+Ouest,France"
+              />
             </div>
           </div>
         </div>

@@ -6,11 +6,17 @@ export default function About() {
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto grid max-w-[1080px] grid-cols-1 items-center gap-12 px-8 md:grid-cols-2 md:gap-16">
         <div className="max-w-xl">
-          <h2 className="text-2xl font-semibold leading-tight tracking-tight text-[#0f172a] md:text-6xl">
-            À Propos de WLM Plomberie & Climatisation
-          </h2>
+          <div className="mb-10 md:mb-14">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#4d8b55]">
+              À propos
+            </p>
 
-          <p className="mt-8 text-lg leading-9 text-[#1f2937] text-left md:text-justify">
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#222222] md:text-5xl">
+              WLM Plomberie & Climatisation
+            </h2>
+          </div>
+
+          <p className="mt-3 text-base md:text-lg leading-7 md:leading-8 text-gray-700 md:text-justify">
             WLM Plomberie Climatisation est une entreprise de renom spécialisée
             dans les services de plomberie, de climatisation et pompes à
             chaleur. Basée à Nice Ouest, notre équipe d’artisans certifiés

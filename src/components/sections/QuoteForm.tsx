@@ -1,4 +1,4 @@
-import {Send, UserCog} from 'lucide-react';
+import {Send} from 'lucide-react';
 
 export default function QuoteForm() {
   return (
@@ -16,7 +16,7 @@ export default function QuoteForm() {
                 Un devis clair pour votre projet
               </h2>
 
-              <p className="mt-5 text-base leading-8 text-[#555555]">
+              <p className="mt-10 text-base leading-8 text-[#555555]">
                 Décrivez-nous votre besoin en plomberie, climatisation ou
                 rénovation. Nous vous répondons rapidement avec une estimation
                 adaptée à votre demande.
@@ -26,9 +26,6 @@ export default function QuoteForm() {
                 Que ce soit pour une installation, un dépannage ou un entretien,
                 nous vous accompagnons avec sérieux, réactivité et transparence.
               </p>
-            </div>
-            <div className="mt-8 flex items-center justify-center rounded-2xl bg-[#eaf2ee] h-[260px] md:h-[150px]">
-              <UserCog size={90} className="text-[#2f7d32]" strokeWidth={1.5} />
             </div>
           </div>
 
