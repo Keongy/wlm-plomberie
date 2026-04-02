@@ -55,12 +55,12 @@ export default function InterventionZone() {
 
           <div className="lg:pl-4">
             <div className="group relative overflow-hidden rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5">
-              <div className="relative h-[340px] w-full overflow-hidden">
+              <div className="relative aspect-[4/3] w-full overflow-hidden lg:h-[340px] lg:aspect-auto">
                 <Image
                   src="/images/car.jpg"
                   alt="Intervention en plomberie et climatisation à Nice Ouest"
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-contain transition-transform duration-500 group-hover:scale-[1.03] lg:object-cover"
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   priority
                 />

@@ -1,4 +1,7 @@
+'use client';
+
 import {Wrench, Droplets, Snowflake, ShowerHead} from 'lucide-react';
+import {motion, type Variants} from 'framer-motion';
 
 const services = [
   {
@@ -20,12 +23,33 @@ const services = [
     icon: Snowflake,
   },
   {
-    title: 'Pompes à chaleur ',
+    title: 'Pompes à chaleur',
     description:
-      'air/eau pour assurer votre chauffage et la production d’eau chaude sanitaire Solution performante, économique et écologique, la pompe à chaleur vous permet de réduire vos consommations d’énergie tout en améliorant votre confort toute l’année.',
+      'Air/eau pour assurer votre chauffage et la production d’eau chaude sanitaire. Solution performante, économique et écologique.',
     icon: ShowerHead,
   },
 ];
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {opacity: 0, y: 30},
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
 
 export default function Services() {
   return (
@@ -41,14 +65,21 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <motion.div
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{once: true, amount: 0.2}}
+        >
           {services.map((service) => {
             const Icon = service.icon;
 
             return (
-              <article
+              <motion.article
                 key={service.title}
-                className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition-transform duration-200 hover:-translate-y-1"
+                variants={itemVariants}
+                className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02]"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#eaf2ee]">
                   <Icon size={20} className="text-[#1f7a3f]" />
@@ -61,10 +92,10 @@ export default function Services() {
                 <p className="mt-3 text-sm sm:text-base leading-6 text-[#6b7280]">
                   {service.description}
                 </p>
-              </article>
+              </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
