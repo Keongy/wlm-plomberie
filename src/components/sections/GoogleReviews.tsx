@@ -55,7 +55,7 @@ function ReviewCard({review}: {review: Review}) {
   const isLong = useMemo(() => review.text.length > 140, [review.text]);
 
   return (
-    <article className="w-[280px] shrink-0 snap-start rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 sm:w-[320px] lg:w-[340px]">
+    <article className="w-[280px] shrink-0 snap-start rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 select-none sm:w-[320px] lg:w-[340px]">
       <div className="flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
           {!imageError && review.authorPhoto ? (
@@ -66,6 +66,7 @@ function ReviewCard({review}: {review: Review}) {
               height={36}
               className="h-9 w-9 rounded-full object-cover"
               onError={() => setImageError(true)}
+              draggable={false}
             />
           ) : (
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#e83e6f] text-sm font-semibold text-white">
@@ -127,7 +128,12 @@ function ReviewCard({review}: {review: Review}) {
 export default function GoogleReviews() {
   const [data, setData] = useState<ReviewsResponse | null>(null);
   const [loading, setLoading] = useState(true);
+
   const sliderRef = useRef<HTMLDivElement | null>(null);
+  const isDraggingRef = useRef(false);
+  const hasDraggedRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
   useEffect(() => {
     const load = async () => {
@@ -162,6 +168,51 @@ export default function GoogleReviews() {
     });
   };
 
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = sliderRef.current;
+    if (!container) return;
+
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX;
+    scrollLeftRef.current = container.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const container = sliderRef.current;
+    if (!container || !isDraggingRef.current) return;
+
+    const delta = e.pageX - startXRef.current;
+
+    if (Math.abs(delta) > 5) {
+      hasDraggedRef.current = true;
+    }
+
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+      container.scrollLeft = scrollLeftRef.current - delta;
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+
+    window.setTimeout(() => {
+      hasDraggedRef.current = false;
+    }, 0);
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
   if (loading) {
     return (
       <section className="bg-[#f5f5f5] py-10 md:py-14">
@@ -186,23 +237,23 @@ export default function GoogleReviews() {
     );
   }
 
-  const reviews = data.reviews.slice(0, 6);
+  const reviews = data.reviews.slice(0, 8);
+  const globalReviewsUrl =
+    data.googleMapsUri ||
+    'https://www.google.com/search?q=wlm+plomberie+climatisation+avis';
 
   return (
     <section className="bg-[#f5f5f5] py-10 md:py-14">
       <div className="mx-auto max-w-[1080px] px-6">
-        <div className="mb-8">
-          <p className="text-center text-base font-semibold text-[#333333]">
+        <div className="mb-8 text-center">
+          <p className="text-base font-semibold text-[#333333]">
             Ce que disent nos clients
           </p>
 
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-sm text-[#555555]">
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-[#171717]">
-                {data.rating.toFixed(1)}
-              </span>
-              <Stars rating={Math.round(data.rating)} />
-            </div>
+            <span className="font-semibold text-[#171717]">
+              {data.rating.toFixed(1)}
+            </span>
             <span>•</span>
             <span>{data.userRatingCount} avis Google</span>
           </div>
@@ -231,7 +282,12 @@ export default function GoogleReviews() {
 
           <div
             ref={sliderRef}
-            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            onClickCapture={handleClickCapture}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {reviews.map((review, index) => (
               <ReviewCard
@@ -240,20 +296,20 @@ export default function GoogleReviews() {
               />
             ))}
           </div>
-        </div>
 
-        {data.googleMapsUri ? (
-          <div className="mt-6 text-center">
-            <a
-              href={data.googleMapsUri}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2f7d32] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-            >
-              Voir tous les avis sur Google
-            </a>
-          </div>
-        ) : null}
+          {globalReviewsUrl ? (
+            <div className="mt-3 text-center">
+              <a
+                href={globalReviewsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-medium text-[#2f7d32] transition-colors hover:underline"
+              >
+                Voir tous nos avis
+              </a>
+            </div>
+          ) : null}
+        </div>
       </div>
     </section>
   );
