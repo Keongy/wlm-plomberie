@@ -254,6 +254,7 @@ export default function GoogleReviews() {
             <span className="font-semibold text-[#171717]">
               {data.rating.toFixed(1)}
             </span>
+            <Stars rating={Math.round(data.rating)} />
             <span>•</span>
             <span>{data.userRatingCount} avis Google</span>
           </div>
